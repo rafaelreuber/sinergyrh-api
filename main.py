@@ -24,6 +24,10 @@ app = Flask(__name__)
 
 @app.get("/funcionario/<cpf>")
 def funcionario(cpf):
+    """
+    Retorna dos dados do funcionário na plataforma Sinergyrh
+    :param cpf: CPF do funcionário
+    """
     resultado = client.service.getDadosFuncionariosPorCpf(cpf, _soapheaders=headers)
     xml = CryptSinergyClient.Crypt.Descriptografar(resultado, SINERGYRH_CHAVE)
     dados = xmltodict.parse(xml)
