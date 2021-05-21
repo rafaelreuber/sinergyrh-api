@@ -3,6 +3,7 @@ import clr
 import xmltodict
 from flask import Flask
 from flask import jsonify
+from flask_cors import CORS
 from zeep import Client
 
 SINERGYRH_WSDL = "https://www.folhasinergyrh.com.br/Sinergy.WebServices.Dados/DadosFuncionarios.asmx?WSDL"
@@ -20,6 +21,7 @@ headers = {
 }
 
 app = Flask(__name__)
+CORS(app)
 
 
 @app.get("/funcionario/<cpf>")

@@ -1,5 +1,6 @@
 pythonnet==2.5.2
 zeep
 flask
+flask-cors
 gunicorn
 xmltodict
